@@ -1,0 +1,28 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gaozhaoxi.mapper.UserMapper">
+    <resultMap type="com.gaozhaoxi.entity.User" id="usermap">
+        <!--constrctor 可以代替无参构造函数-->
+        <constructor>
+            <idArg column="id" javaType="Long" />
+            <arg column="username" javaType="String"/>
+            <arg column="password" javaType="String"/>
+            <arg column="address" javaType="String"/>
+        </constructor>
+        <id column="id" property="id"/>
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+        <result column="address" property="address"/>
+
+    </resultMap>
+    <select id="getUserById" resultMap="usermap" parameterType="Long" resultType="user">
+        select * from user
+    </select>
+    <insert id="insert">
+        insert into users (id, name, funkyNumber, roundingMode) values (
+        #{id}, #{name}, #{funkyNumber}, #{roundingMode}
+        )
+    </insert>
+
+</mapper>

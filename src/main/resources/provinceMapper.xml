@@ -1,0 +1,13 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gaozhaoxi.mapper.ProvinceMapper">
+    <resultMap type="com.gaozhaoxi.entity.Province" id="provincemap">
+        <id column="id" property="id"/>
+        <association property="alias" column="id" select="com.gaozhaoxi.mapper.AliasMapper.findAliasByPid"/>
+    </resultMap>
+    <select id="getProvince" resultMap="provincemap">
+        select * from province
+    </select>
+
+</mapper>
