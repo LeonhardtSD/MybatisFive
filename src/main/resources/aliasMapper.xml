@@ -7,6 +7,6 @@
         <result column="name" property="name"/>
     </resultMap>
     <select id="findAliasByPid" parameterType="Long" resultType="alias" resultMap="aliasmap">
-        select * from alias WHERE pid=#{id}
+        select * from alias WHERE pid=#{pid}
     </select>
 </mapper>

@@ -2,6 +2,8 @@ package com.gaozhaoxi.entity;
 
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 /**
  * @author Leon
  */
@@ -9,6 +11,7 @@ public class Province {
     private Long id;
     private String name;
     private Alias alias;
+    private List<City> cities;
 
     public Province(){
 
@@ -41,5 +44,13 @@ public class Province {
 
     public void setAlias(Alias alias) {
         this.alias = alias;
+    }
+
+    public void setCities(List<City> cities) {
+        this.cities = cities;
+    }
+
+    public List<City> getCities() {
+        return cities;
     }
 }

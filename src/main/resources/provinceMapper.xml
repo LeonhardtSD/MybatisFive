@@ -5,6 +5,7 @@
     <resultMap type="com.gaozhaoxi.entity.Province" id="provincemap">
         <id column="id" property="id"/>
         <association property="alias" column="id" select="com.gaozhaoxi.mapper.AliasMapper.findAliasByPid"/>
+        <collection property="cities" column="id" select="com.gaozhaoxi.mapper.CityMapper.findCityByPid"/>
     </resultMap>
     <select id="getProvince" resultMap="provincemap">
         select * from province

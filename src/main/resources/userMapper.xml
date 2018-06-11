@@ -19,10 +19,5 @@
     <select id="getUserById" resultMap="usermap" parameterType="Long" resultType="user">
         select * from user
     </select>
-    <insert id="insert">
-        insert into users (id, name, funkyNumber, roundingMode) values (
-        #{id}, #{name}, #{funkyNumber}, #{roundingMode}
-        )
-    </insert>
 
 </mapper>

@@ -53,4 +53,24 @@ public class Main {
         }
 
     }
+    @Test
+    public void test3(){
+        SqlSession sqlSession=null;
+        try {
+            sqlSession= DBUtil.openSession();
+            ProvinceMapper provinceMapper=sqlSession.getMapper(ProvinceMapper.class);
+            List<Province> list=provinceMapper.getProvince();
+            System.out.println(list.toString());
+            sqlSession.commit();
+
+        }catch (Exception e){
+            e.printStackTrace();
+            sqlSession.rollback();
+        }finally {
+            if (sqlSession!=null){
+                sqlSession.close();
+            }
+        }
+
+    }
 }
