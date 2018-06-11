@@ -12,14 +12,17 @@ public class Province {
     private String name;
     private Alias alias;
     private List<City> cities;
+    private List<Food> foods;
 
     public Province(){
 
     }
-    public Province(Long id,String name,Alias alias){
+    public Province(Long id,String name,Alias alias,List<City> cities,List<Food> foods){
         this.id=id;
         this.name=name;
         this.alias=alias;
+        this.cities=cities;
+        this.foods=foods;
     }
 
     public Long getId() {

@@ -4,8 +4,20 @@
 <mapper namespace="com.gaozhaoxi.mapper.ProvinceMapper">
     <resultMap type="com.gaozhaoxi.entity.Province" id="provincemap">
         <id column="id" property="id"/>
+        <!--id是参入到该方法的参数，该方法运行查询出来的结果赋予到property-->
         <association property="alias" column="id" select="com.gaozhaoxi.mapper.AliasMapper.findAliasByPid"/>
         <collection property="cities" column="id" select="com.gaozhaoxi.mapper.CityMapper.findCityByPid"/>
+        <discriminator javaType="int" column="area">
+            <case value="1" resultMap="noodleResultmap"></case>
+            <case value="2" resultMap="riceResultmap"></case>
+        </discriminator>
+    </resultMap>
+    
+    <resultMap id="noodleResultmap" type="com.gaozhaoxi.entity.Province" extends="provincemap">
+        <collection property="foods" column="area" select="com.gaozhaoxi.mapper.NoodleMapper.findNoodleByArea"/>
+    </resultMap>
+    <resultMap id="riceResultmap" type="com.gaozhaoxi.entity.Province" extends="provincemap">
+        <collection property="foods" column="area" select="com.gaozhaoxi.mapper.RiceMapper.findRiceByArea"/>
     </resultMap>
     <select id="getProvince" resultMap="provincemap">
         select * from province

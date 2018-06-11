@@ -8,6 +8,8 @@
         <typeAlias type="com.gaozhaoxi.entity.User" alias="user"/>
         <typeAlias type="com.gaozhaoxi.entity.Alias" alias="alias"/>
         <typeAlias type="com.gaozhaoxi.entity.City" alias="city"/>
+        <typeAlias type="com.gaozhaoxi.entity.Noodle" alias="noodle"/>
+        <typeAlias type="com.gaozhaoxi.entity.Rice" alias="rice"/>
     </typeAliases>
     <environments default="development">
         <environment id="development">
@@ -25,5 +27,7 @@
         <mapper resource="provinceMapper.xml"/>
         <mapper resource="aliasMapper.xml"/>
         <mapper resource="cityMapper.xml"/>
+        <mapper resource="riceMapper.xml"/>
+        <mapper resource="noodleMapper.xml"/>
     </mappers>
 </configuration>
