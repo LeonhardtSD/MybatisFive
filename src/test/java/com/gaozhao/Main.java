@@ -15,7 +15,7 @@ import java.util.List;
  */
 public class Main {
     @Test
-    public void test(){
+    public void test() throws NullPointerException{
         SqlSession sqlSession=null;
         try {
             sqlSession= DBUtil.openSession();
@@ -34,7 +34,7 @@ public class Main {
         }
     }
     @Test
-    public void test2(){
+    public void test2() throws NullPointerException{
         SqlSession sqlSession=null;
         try {
             sqlSession= DBUtil.openSession();
@@ -42,7 +42,6 @@ public class Main {
             List<Province> list=provinceMapper.getProvince();
             System.out.println(list.toString());
             sqlSession.commit();
-
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
@@ -54,15 +53,14 @@ public class Main {
 
     }
     @Test
-    public void test3(){
+    public void test3() throws NullPointerException{
         SqlSession sqlSession=null;
         try {
             sqlSession= DBUtil.openSession();
-            ProvinceMapper provinceMapper=sqlSession.getMapper(ProvinceMapper.class);
-            List<Province> list=provinceMapper.getProvince();
+            ProvinceMapper pM=sqlSession.getMapper(ProvinceMapper.class);
+            List<Province> list=pM.getProvince();
             System.out.println(list.toString());
             sqlSession.commit();
-
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
