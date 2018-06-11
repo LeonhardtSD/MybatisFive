@@ -1,0 +1,13 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gaozhaoxi.mapper.RiceMapper">
+    <resultMap type="com.gaozhaoxi.entity.Rice" id="ricemapper">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="way" property="way"/>
+    </resultMap>
+    <select id="findRiceByArea"  resultType="rice" resultMap="ricemapper">
+        select * from rice
+    </select>
+</mapper>
