@@ -7,6 +7,7 @@
         <!--id是参入到该方法的参数，该方法运行查询出来的结果赋予到property-->
         <association property="alias" column="id" select="com.gaozhaoxi.mapper.AliasMapper.findAliasByPid"/>
         <collection property="cities" column="id" select="com.gaozhaoxi.mapper.CityMapper.findCityByPid"/>
+        <!--自动选择合适类型-->
         <discriminator javaType="int" column="area">
             <case value="1" resultMap="noodleResultmap"></case>
             <case value="2" resultMap="riceResultmap"></case>

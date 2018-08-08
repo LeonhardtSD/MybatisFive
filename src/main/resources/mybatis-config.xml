@@ -3,7 +3,12 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+    <!--以下的节点都是有默认顺序的，不按默认顺序排序则报错-->
     <properties resource="db.properties"/>
+    <settings>
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <setting name="aggressiveLazyLoading" value="false"/>
+    </settings>
     <typeAliases>
         <typeAlias type="com.gaozhaoxi.entity.User" alias="user"/>
         <typeAlias type="com.gaozhaoxi.entity.Alias" alias="alias"/>
@@ -30,4 +35,5 @@
         <mapper resource="riceMapper.xml"/>
         <mapper resource="noodleMapper.xml"/>
     </mappers>
+
 </configuration>

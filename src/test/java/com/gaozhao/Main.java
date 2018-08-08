@@ -60,6 +60,8 @@ public class Main {
             ProvinceMapper pM=sqlSession.getMapper(ProvinceMapper.class);
             List<Province> list=pM.getProvince();
             System.out.println(list.toString());
+            System.out.println(list.size());
+            System.out.println(list.get(0).getId());
             sqlSession.commit();
         }catch (Exception e){
             e.printStackTrace();
